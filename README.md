@@ -1,4 +1,6 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Project Description
+
+A website interface for all internal built softwares. Developed using the React framework and a SQL Express backend.
 
 ## Available Scripts
 

@@ -7,7 +7,7 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      sidebarOpen: true
+      sidebarOpen: false
     };
     this.onSetSidebarOpen = this.onSetSidebarOpen.bind(this);
   }

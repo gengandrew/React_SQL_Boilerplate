@@ -19,7 +19,7 @@ class App extends Component {
 
   onSetSidebarOpen(open) {
     this.setState({ sidebarOpen: open });
-  }*/
+  }
   componentDidMount() {
     const customScript = document.createElement("script");
     const popperJS = document.createElement("script");
@@ -32,11 +32,17 @@ class App extends Component {
 
     document.body.appendChild(popperJS);
     //document.body.appendChild(customScript);
-  }
+  }*/
 
   render() {
+    const wrapperStyle = {
+      display: "flex",
+      alignItems: "stretch",
+      perspective: "1500px",
+      width: "100%"
+    };
     return (
-      <div id="wrapper">
+      <div id="wrapper" style={wrapperStyle}>
         <Sidebar />
         <Content />
       </div>

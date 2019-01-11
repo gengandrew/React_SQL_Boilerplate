@@ -1,61 +1,60 @@
 import React, { Component } from "react";
+import { Button } from "reactstrap";
+import "bootstrap/dist/js/bootstrap";
+import "bootstrap/dist/css/bootstrap.min.css";
+import "../css/stylesheet.css";
 
 class NavBar extends Component {
   //state = {  }
   render() {
     return (
-      <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="#">
-          Navbar
-        </a>
-        <form class="form-inline">
-          <input
-            class="form-control mr-sm-2"
-            type="search"
-            placeholder="Search"
-            aria-label="Search"
-          />
-          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">
-            Search
-          </button>
-        </form>
-        <button
-          class="navbar-toggler"
-          type="button"
-          data-toggle="collapse"
-          data-target="#navbarNav"
-          aria-controls="navbarNav"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-        >
-          <span class="navbar-toggler-icon" />
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-          <ul class="navbar-nav">
-            <li class="nav-item active">
-              <a class="nav-link" href="#">
-                Home <span class="sr-only">(current)</span>
+      <nav className="navbar navbar-expand-lg navbar-light bg-light">
+        <div className="container-fluid">
+          <ul className="nav navbar-nav ml-auto">
+            <li style={{ display: "inline" }}>
+              <button type="button" id="sidebarCollapse" className="navbar-btn">
+                <span /> <span /> <span />
+              </button>
+            </li>
+
+            <li className="nav-item active">
+              <a className="index-title" href="https://www.google.com">
+                Devtool Interface
               </a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">
-                Features
+            <li className="nav-item">
+              <a className="nav-link" href="https://www.google.com">
+                Page
               </a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">
-                Pricing
+            <li className="nav-item">
+              <a className="nav-link" href="https://www.google.com">
+                Page
               </a>
             </li>
-            <li class="nav-item">
-              <a
-                class="nav-link disabled"
-                href="#"
-                tabindex="-1"
-                aria-disabled="true"
+            <li className="nav-item">
+              <a className="nav-link" href="https://www.google.com">
+                Page
+              </a>
+            </li>
+            <li className="nav-item">
+              <form
+                className="form-inline my-2 my-lg-0"
+                style={{ marginTop: "8" }}
               >
-                Disabled
-              </a>
+                <input
+                  className="form-control mr-sm-2"
+                  type="search"
+                  placeholder="Search"
+                  aria-label="Search"
+                />
+                <button
+                  className="btn btn-outline-success my-2 my-sm-0"
+                  type="submit"
+                >
+                  Search
+                </button>
+              </form>
             </li>
           </ul>
         </div>

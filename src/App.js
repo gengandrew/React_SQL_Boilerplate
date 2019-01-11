@@ -1,9 +1,14 @@
 import React, { Component } from "react";
-import NavBar from "./components/navbar";
-import SideBar from "react-sidebar";
-import "./App.css";
+import Sidebar from "./components/sidebar";
+import Content from "./components/content";
+import "jquery";
+import { $ } from "jquery";
+import "bootstrap/dist/js/bootstrap";
+import "bootstrap/dist/css/bootstrap.min.css";
+import "./css/stylesheet.css";
 
 class App extends Component {
+  /*
   constructor(props) {
     super(props);
     this.state = {
@@ -14,23 +19,27 @@ class App extends Component {
 
   onSetSidebarOpen(open) {
     this.setState({ sidebarOpen: open });
+  }*/
+  componentDidMount() {
+    const customScript = document.createElement("script");
+    const popperJS = document.createElement("script");
+
+    popperJS.src =
+      "https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js";
+    popperJS.async = true;
+    customScript.src = "./js/customScript.js";
+    customScript.async = true;
+
+    document.body.appendChild(popperJS);
+    //document.body.appendChild(customScript);
   }
 
   render() {
     return (
-      <React.Fragment>
-        <NavBar />
-        <SideBar
-          sidebar={<b>Awesome Content</b>}
-          open={this.state.sidebarOpen}
-          onSetOpen={this.onSetSidebarOpen}
-          styles={{ sidebar: { background: "blue" } }}
-        >
-          <button onClick={() => this.onSetSidebarOpen(true)}>
-            Open SideBar
-          </button>
-        </SideBar>
-      </React.Fragment>
+      <div id="wrapper">
+        <Sidebar />
+        <Content />
+      </div>
     );
   }
 }

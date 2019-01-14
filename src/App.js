@@ -35,14 +35,8 @@ class App extends Component {
   }*/
 
   render() {
-    const wrapperStyle = {
-      display: "flex",
-      alignItems: "stretch",
-      perspective: "1500px",
-      width: "100%"
-    };
     return (
-      <div id="wrapper" style={wrapperStyle}>
+      <div className="wrapper">
         <Sidebar />
         <Content />
       </div>

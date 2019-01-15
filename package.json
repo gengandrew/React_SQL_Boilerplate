@@ -1,32 +1,30 @@
 {
   "name": "devtool_interface",
-  "version": "0.1.0",
-  "private": true,
+  "version": "1.0.0",
+  "description": "A website interface for all internal built softwares. Developed using the React framework and a SQL Express backend.",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "concurrently \"npm run server\" \"npm run client\"",
+    "server": "nodemon server.js",
+    "client": "cd client && npm start",
+    "client-install": "cd client && npm install"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gengandrew/Devtool_Interface.git"
+  },
+  "author": "Andrew Geng",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/gengandrew/Devtool_Interface/issues"
+  },
+  "homepage": "https://github.com/gengandrew/Devtool_Interface#readme",
   "dependencies": {
-    "bootstrap": "^4.2.1",
+    "body-parser": "^1.18.3",
+    "concurrently": "^4.1.0",
     "cors": "^2.8.5",
     "express": "^4.16.4",
-    "jquery": "^3.3.1",
-    "mysql": "^2.16.0",
-    "react": "^16.7.0",
-    "react-dom": "^16.7.0",
-    "react-scripts": "2.1.3",
-    "react-sidebar": "^3.0.2",
-    "reactstrap": "^7.0.2"
-  },
-  "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
-  },
-  "eslintConfig": {
-    "extends": "react-app"
-  },
-  "browserslist": [
-    ">0.2%",
-    "not dead",
-    "not ie <= 11",
-    "not op_mini all"
-  ]
+    "mysql": "^2.16.0"
+  }
 }

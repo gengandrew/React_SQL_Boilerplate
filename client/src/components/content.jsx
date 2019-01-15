@@ -11,7 +11,7 @@ class Content extends Component {
       <div id="content">
         <Navbar />
         <button className="btn btn-primary">
-          <a href="https://www.google.com/">Widget</a>
+          <a href="http://localhost:5000/api/getAll">Widget</a>
         </button>
       </div>
     );

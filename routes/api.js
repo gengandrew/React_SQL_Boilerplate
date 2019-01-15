@@ -30,7 +30,7 @@ router.get("/createDB", (req, res) => {
   });
 });
 
-// Create Database
+// Create Table
 router.get("/createTable", (req, res) => {
   let query =
     "CREATE table products (id int NOT NULL AUTO_INCREMENT, name VARCHAR(50), cost int, PRIMARY KEY (id));";
@@ -68,7 +68,9 @@ router.get("/select/:id", (req, res) => {
     } else {
       let JSONOut = JSON.parse(JSON.stringify(result));
       console.log(JSONOut[0]);
-      return res.send("Selection has been made at " + JSONOut[0].name);
+      return res.send(
+        "Selection has been made at " + JSON.stringify(JSONOut[0])
+      );
     }
   });
 });

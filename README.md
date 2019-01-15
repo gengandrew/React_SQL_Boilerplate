@@ -22,7 +22,7 @@ open [http://localhost:5000](http://localhost:5000) to access backend
 ### `npm client`
 
 Runs only the frontend of the application<br>
-open [http://localhost:3000](http://localhost:3000) to access frontend
+open [http://localhost:3000](http://localhost:3000) to view frontend
 
 ### `npm client install`
 

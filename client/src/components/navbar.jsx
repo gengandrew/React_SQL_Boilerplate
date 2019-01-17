@@ -7,10 +7,7 @@ import {
   Nav,
   NavItem,
   NavLink,
-  UncontrolledDropdown,
-  DropdownToggle,
-  DropdownMenu,
-  DropdownItem
+  Container
 } from "reactstrap";
 
 class navbar extends Component {
@@ -30,18 +27,20 @@ class navbar extends Component {
     return (
       <div>
         <Navbar color="dark" dark expand="md">
-          <NavbarBrand href="/">Devtool Interface</NavbarBrand>
-          <NavbarToggler onClick={this.toggle} />
-          <Collapse isOpen={this.state.isOpen} navbar>
-            <Nav className="ml-auto" navbar>
-              <NavItem>
-                <NavLink>Cool Link</NavLink>
-              </NavItem>
-              <NavItem>
-                <NavLink href="/">Home</NavLink>
-              </NavItem>
-            </Nav>
-          </Collapse>
+          <Container>
+            <NavbarBrand href="/">Devtool Interface</NavbarBrand>
+            <NavbarToggler onClick={this.toggle} />
+            <Collapse isOpen={this.state.isOpen} navbar>
+              <Nav className="ml-auto" navbar>
+                <NavItem>
+                  <NavLink>Cool Link</NavLink>
+                </NavItem>
+                <NavItem>
+                  <NavLink href="/">Home</NavLink>
+                </NavItem>
+              </Nav>
+            </Collapse>
+          </Container>
         </Navbar>
       </div>
     );

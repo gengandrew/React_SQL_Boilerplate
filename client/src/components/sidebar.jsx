@@ -53,19 +53,19 @@ class Sidebar extends Component {
             </Collapse>
           </li>
           <li>
-            <a href="#">App #1</a>
+            <a href="/">App #1</a>
           </li>
           <li>
-            <a href="#">App #2</a>
+            <a href="/">App #2</a>
           </li>
           <li>
-            <a href="#">App #3</a>
+            <a href="/">App #3</a>
           </li>
           <li>
-            <a href="#">App #4</a>
+            <a href="/">App #4</a>
           </li>
           <li>
-            <a href="#">App #5</a>
+            <a href="/">App #5</a>
           </li>
         </ul>
       </nav>

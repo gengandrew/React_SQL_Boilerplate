@@ -3,6 +3,7 @@ import ReactDOM from "react-dom";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import Bookmark from "./pages/Bookmark";
 import ErrorPage from "./pages/ErrorPage";
+import Test from "./components/bookmarkElement";
 import App from "./App";
 import * as serviceWorker from "./serviceWorker";
 import "bootstrap/dist/js/bootstrap";
@@ -14,6 +15,7 @@ ReactDOM.render(
     <Switch>
       <Route path="/" component={App} exact />
       <Route path="/Bookmark" component={Bookmark} />
+      <Route path="/Test" component={Test} />
       <Route component={ErrorPage} />
     </Switch>
   </BrowserRouter>,

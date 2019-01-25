@@ -47,10 +47,10 @@ class Bookmark extends Component {
               <Collapse isOpen={this.state.collapse}>
                 <ListGroup>
                   <ListGroupItem>
-                    <BookmarkTab />
+                    <BookmarkTab key="A" />
                   </ListGroupItem>
                   <ListGroupItem>
-                    <BookmarkTab />
+                    <BookmarkTab key="B" />
                   </ListGroupItem>
                 </ListGroup>
               </Collapse>

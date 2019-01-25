@@ -34,6 +34,7 @@ class BookmarkTab extends Component {
   tooltipToggle() {
     this.setState({ tooltipOpen: !this.state.tooltipOpen });
   }
+
   render() {
     return (
       <Row>

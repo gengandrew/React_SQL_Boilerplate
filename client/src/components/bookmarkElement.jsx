@@ -6,10 +6,14 @@ import uuid from "uuid";
 class bookmarkElement extends Component {
   state = {
     items: [
-      { id: uuid(), name: "Google1" },
-      { id: uuid(), name: "Google2" },
-      { id: uuid(), name: "Google3" },
-      { id: uuid(), name: "Google4" }
+      { id: uuid(), name: "Google1", url: "https://www.google.com" },
+      { id: uuid(), name: "Yahoo", url: "https://www.yahoo.com" },
+      {
+        id: uuid(),
+        name: "Fake News",
+        url: "https://www.washingtonpost.com/?noredirect=on"
+      },
+      { id: uuid(), name: "Google4", url: "https://www.google.com" }
     ]
   };
   render() {
@@ -32,7 +36,7 @@ class bookmarkElement extends Component {
         </Button>
         <ListGroup>
           <TransitionGroup className="bookmark-Element">
-            {items.map(({ id, name }) => (
+            {items.map(({ id, name, url }) => (
               <CSSTransition key={id} timeout={500} classNames="fade">
                 <ListGroupItem>
                   <Button
@@ -47,7 +51,7 @@ class bookmarkElement extends Component {
                   >
                     &times;
                   </Button>
-                  {name}
+                  <a href={url}>{name}</a>
                 </ListGroupItem>
               </CSSTransition>
             ))}

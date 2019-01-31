@@ -1,9 +1,11 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
+import { Provider } from "react-redux";
+import store from "./store";
 import Bookmark from "./pages/Bookmark";
 import ErrorPage from "./pages/ErrorPage";
-import Test from "./components/bookmarkElement";
+import TestPage from "./pages/TestPage";
 import App from "./App";
 import * as serviceWorker from "./serviceWorker";
 import "bootstrap/dist/js/bootstrap";
@@ -15,7 +17,9 @@ ReactDOM.render(
     <Switch>
       <Route path="/" component={App} exact />
       <Route path="/Bookmark" component={Bookmark} />
-      <Route path="/Test" component={Test} />
+      <Provider store={store}>
+        <Route path="/Test" component={TestPage} />
+      </Provider>
       <Route component={ErrorPage} />
     </Switch>
   </BrowserRouter>,

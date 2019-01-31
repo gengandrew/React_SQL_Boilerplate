@@ -1,23 +1,22 @@
 import React, { Component } from "react";
+import { connect } from "react-redux";
+import { getItems, deleteItems } from "../actions/itemActions";
 import { Container, ListGroup, ListGroupItem, Button } from "reactstrap";
 import { CSSTransition, TransitionGroup } from "react-transition-group";
 import uuid from "uuid";
+import PropTypes from "prop-types";
 
 class bookmarkElement extends Component {
-  state = {
-    items: [
-      { id: uuid(), name: "Google1", url: "https://www.google.com" },
-      { id: uuid(), name: "Yahoo", url: "https://www.yahoo.com" },
-      {
-        id: uuid(),
-        name: "Fake News",
-        url: "https://www.washingtonpost.com/?noredirect=on"
-      },
-      { id: uuid(), name: "Google4", url: "https://www.google.com" }
-    ]
+  componentDidMount() {
+    this.props.getItems();
+  }
+
+  deleteClick = id => {
+    this.props.deleteItems(id);
   };
+
   render() {
-    const { items } = this.state;
+    const { items } = this.props.item;
     return (
       <Container>
         <Button
@@ -43,11 +42,7 @@ class bookmarkElement extends Component {
                     style={{ marginRight: "0.5rem" }}
                     color="danger"
                     size="sm"
-                    onClick={() => {
-                      this.setState(state => ({
-                        items: state.items.filter(item => item.id !== id)
-                      }));
-                    }}
+                    onClick={this.deleteClick.bind(this, id)}
                   >
                     &times;
                   </Button>
@@ -62,4 +57,17 @@ class bookmarkElement extends Component {
   }
 }
 
-export default bookmarkElement;
+bookmarkElement.propTypes = {
+  getItems: PropTypes.func.isRequired,
+  deleteItems: PropTypes.func.isRequired,
+  item: PropTypes.object.isRequired
+};
+
+const mapStateToProps = state => ({
+  item: state.item
+});
+
+export default connect(
+  mapStateToProps,
+  { getItems, deleteItems }
+)(bookmarkElement);

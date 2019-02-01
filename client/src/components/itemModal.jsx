@@ -61,7 +61,6 @@ class itemModal extends Component {
           <ModalBody>
             <Form onSubmit={this.onSubmit}>
               <FormGroup>
-                <Label for="item">Add to Bookmarks</Label>
                 <Input
                   type="text"
                   name="name"
@@ -75,7 +74,7 @@ class itemModal extends Component {
                   id="item"
                   placeHolder="Add Url Link"
                   onChange={this.onChangeUrl}
-                  style={{ marginTop: "1px" }}
+                  style={{ marginTop: "10px" }}
                 />
                 <Button color="dark" style={{ marginTop: "2rem" }} block>
                   Add Item

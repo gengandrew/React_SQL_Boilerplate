@@ -4,7 +4,9 @@ import {
   Container,
   Button,
   ListGroup,
-  ListGroupItem
+  ListGroupItem,
+  Col,
+  Row
 } from "reactstrap";
 import Navbar from "../components/navbar";
 import BookmarkTab from "../components/bookmarkTab";
@@ -54,6 +56,42 @@ class Bookmark extends Component {
                   </ListGroupItem>
                 </ListGroup>
               </Collapse>
+            </ListGroupItem>
+            <ListGroupItem>
+              <Row>
+                <Col xs="6">
+                  <Button
+                    style={{ width: "100%", marginBottom: "1rem" }}
+                    color="primary"
+                    onClick={this.collapseToggle}
+                  >
+                    Category 1
+                  </Button>
+                  <Collapse isOpen={this.state.collapse}>
+                    <ListGroup>
+                      <ListGroupItem>
+                        <BookmarkTab key="C" />
+                      </ListGroupItem>
+                    </ListGroup>
+                  </Collapse>
+                </Col>
+                <Col xs="6">
+                  <Button
+                    style={{ width: "100%", marginBottom: "1rem" }}
+                    color="primary"
+                    onClick={this.collapseToggle}
+                  >
+                    Category 1
+                  </Button>
+                  <Collapse isOpen={this.state.collapse}>
+                    <ListGroup>
+                      <ListGroupItem>
+                        <BookmarkTab key="C" />
+                      </ListGroupItem>
+                    </ListGroup>
+                  </Collapse>
+                </Col>
+              </Row>
             </ListGroupItem>
           </ListGroup>
         </Container>

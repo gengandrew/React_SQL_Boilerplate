@@ -36,30 +36,57 @@ class Bookmark extends Component {
     return (
       <div>
         <Navbar />
-        <Container style={{ padding: "10px" }}>
-          <ListGroup>
-            <ListGroupItem>
-              <Button
-                style={{ width: "100%", marginBottom: "1rem" }}
-                color="primary"
-                onClick={this.collapseToggle}
-              >
-                Category 1
-              </Button>
-              <Collapse isOpen={this.state.collapse}>
-                <ListGroup>
-                  <ListGroupItem>
-                    <BookmarkTab key="A" />
-                  </ListGroupItem>
-                  <ListGroupItem>
-                    <BookmarkTab key="B" />
-                  </ListGroupItem>
-                </ListGroup>
-              </Collapse>
-            </ListGroupItem>
-            <ListGroupItem>
-              <Row>
-                <Col xs="6">
+        <Container style={{ padding: "10px" }} className="allBookmarks">
+          <Row>
+            <Col xs="12">
+              <ListGroup>
+                <ListGroupItem>
+                  <Button
+                    style={{ width: "100%", marginBottom: "1rem" }}
+                    color="primary"
+                    onClick={this.collapseToggle}
+                  >
+                    Category 1
+                  </Button>
+                  <Collapse isOpen={this.state.collapse}>
+                    <ListGroup>
+                      <ListGroupItem>
+                        <BookmarkTab key="A" />
+                      </ListGroupItem>
+                      <ListGroupItem>
+                        <BookmarkTab key="B" />
+                      </ListGroupItem>
+                    </ListGroup>
+                  </Collapse>
+                </ListGroupItem>
+              </ListGroup>
+            </Col>
+          </Row>
+          <Row>
+            <Col xs="6">
+              <ListGroup>
+                <ListGroupItem style={{ marginTop: "1rem" }}>
+                  {""}
+                  <Button
+                    style={{ width: "100%", marginBottom: "1rem" }}
+                    color="primary"
+                    onClick={this.collapseToggle}
+                  >
+                    Category 1
+                  </Button>
+                  <Collapse isOpen={this.state.collapse}>
+                    <ListGroup>
+                      <ListGroupItem>
+                        <BookmarkTab key="C" />
+                      </ListGroupItem>
+                    </ListGroup>
+                  </Collapse>{" "}
+                </ListGroupItem>
+              </ListGroup>
+            </Col>
+            <Col xs="6">
+              <ListGroup>
+                <ListGroupItem style={{ marginTop: "1rem" }}>
                   <Button
                     style={{ width: "100%", marginBottom: "1rem" }}
                     color="primary"
@@ -74,8 +101,8 @@ class Bookmark extends Component {
                       </ListGroupItem>
                     </ListGroup>
                   </Collapse>
-                </Col>
-                <Col xs="6">
+                </ListGroupItem>
+                <ListGroupItem style={{ marginTop: "1rem" }}>
                   <Button
                     style={{ width: "100%", marginBottom: "1rem" }}
                     color="primary"
@@ -90,10 +117,10 @@ class Bookmark extends Component {
                       </ListGroupItem>
                     </ListGroup>
                   </Collapse>
-                </Col>
-              </Row>
-            </ListGroupItem>
-          </ListGroup>
+                </ListGroupItem>
+              </ListGroup>
+            </Col>
+          </Row>
         </Container>
       </div>
     );

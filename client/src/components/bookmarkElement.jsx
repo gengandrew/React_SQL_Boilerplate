@@ -11,8 +11,8 @@ class bookmarkElement extends Component {
     this.props.getItems();
   }
 
-  deleteClick = id => {
-    this.props.deleteItems(id);
+  deleteClick = BookmarkID => {
+    this.props.deleteItems(BookmarkID);
   };
 
   render() {

@@ -14,10 +14,10 @@ export const getItems = () => dispath => {
   );
 };
 
-export const deleteItems = id => {
+export const deleteItems = BookmarkID => {
   return {
     type: DELETE_ITEMS,
-    payload: id
+    payload: BookmarkID
   };
 };
 

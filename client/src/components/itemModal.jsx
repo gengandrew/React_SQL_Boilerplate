@@ -16,8 +16,9 @@ import {
 class itemModal extends Component {
   state = {
     modal: false,
-    name: "",
-    url: ""
+    BookmarkName: "",
+    URL: "",
+    BookmarkDescription: ""
   };
 
   toggle = () => {
@@ -27,19 +28,20 @@ class itemModal extends Component {
   };
 
   onChange = e => {
-    this.setState({ [e.target.name]: e.target.value });
+    this.setState({ [e.target.BookmarkName]: e.target.value });
   };
 
   onChangeUrl = e => {
-    this.setState({ url: e.target.value });
+    this.setState({ [e.target.URL]: e.target.value });
   };
 
   onSubmit = e => {
     e.preventDefault();
     const newItem = {
-      id: uuid(),
-      name: this.state.name,
-      url: this.state.url
+      BookmarkID: uuid(),
+      BookmarkName: this.state.BookmarkName,
+      URL: this.state.URL,
+      BookmarkDescription: this.state.BookmarkDescription
     };
 
     this.props.addItems(newItem);
@@ -63,14 +65,14 @@ class itemModal extends Component {
               <FormGroup>
                 <Input
                   type="text"
-                  name="name"
+                  name="BookmarkName"
                   id="item"
                   placeholder="Add Bookmark"
                   onChange={this.onChange}
                 />
                 <Input
                   type="text"
-                  name="url"
+                  name="URL"
                   id="item"
                   placeHolder="Add Url Link"
                   onChange={this.onChangeUrl}

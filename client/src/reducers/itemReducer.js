@@ -1,24 +1,22 @@
-import uuid from "uuid";
-import { GET_ITEMS, ADD_ITEMS, DELETE_ITEMS } from "../actions/types";
+import {
+  GET_ITEMS,
+  ADD_ITEMS,
+  DELETE_ITEMS,
+  ITEMS_LOADING
+} from "../actions/types";
 
 const initialState = {
-  items: [
-    { id: uuid(), name: "Google1", url: "https://www.google.com" },
-    { id: uuid(), name: "Yahoo", url: "https://www.yahoo.com" },
-    {
-      id: uuid(),
-      name: "Fake News",
-      url: "https://www.washingtonpost.com/?noredirect=on"
-    },
-    { id: uuid(), name: "Google4", url: "https://www.google.com" }
-  ]
+  items: [],
+  loading: false
 };
 
 export default function(state = initialState, action) {
   switch (action.type) {
     case GET_ITEMS:
       return {
-        ...state
+        ...state,
+        items: action.payload.data,
+        loading: false
       };
     case DELETE_ITEMS:
       return {
@@ -29,6 +27,11 @@ export default function(state = initialState, action) {
       return {
         ...state,
         items: [action.payload, ...state.items]
+      };
+    case ITEMS_LOADING:
+      return {
+        ...state,
+        loading: true
       };
     default:
       return state;

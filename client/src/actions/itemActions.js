@@ -4,7 +4,6 @@ import axios from "axios";
 const serverHostID = "http://localhost:5000/api/";
 
 export const getItems = () => dispath => {
-  console.log("Yep");
   dispath(setItemsLoading());
   axios.get("http://localhost:5000/api/getAll").then(res =>
     dispath({

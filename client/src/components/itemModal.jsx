@@ -37,7 +37,6 @@ class itemModal extends Component {
 
   onSubmit = e => {
     e.preventDefault();
-    alert(this.state.BookmarkName);
     const newItem = {
       BookmarkName: this.state.BookmarkName,
       URL: this.state.URL,

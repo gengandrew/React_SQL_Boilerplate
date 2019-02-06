@@ -1,8 +1,11 @@
 const express = require("express");
+const bodyParser = require("body-parser");
 const mysql = require("mysql");
 const router = express.Router();
 const dbConfig = require("../config/keys");
 const connection = mysql.createConnection(dbConfig);
+
+router.use(bodyParser.json());
 
 // Get all items from products
 router.get("/getAll", (req, res) => {
@@ -46,10 +49,11 @@ router.get("/createTable", (req, res) => {
 // Posting an Item
 router.post("/post_bookmarks", (req, res) => {
   let newInsert = {
-    BookmarkName: req.body.payload.BookmarkName,
-    URL: req.body.payload.URL,
-    BookmarkDescription: req.body.payload.BookmarkDescription
+    BookmarkName: req.body.BookmarkName,
+    URL: req.body.URL,
+    BookmarkDescription: req.body.BookmarkDescription
   };
+
   let query = "INSERT INTO bookmarks SET ?";
   let output = connection.query(query, newInsert, (err, result) => {
     if (err) {
@@ -63,10 +67,11 @@ router.post("/post_bookmarks", (req, res) => {
 // Insert Item
 router.get("/insert", (req, res) => {
   let item = {
-    name: "Cool Watch",
-    cost: 100
+    BookmarkName: "Yahoo",
+    BookmarkDescription: "This links you to Yahoo",
+    URL: "https://www.yahoo.com"
   };
-  let query = "INSERT INTO products SET ?";
+  let query = "INSERT INTO bookmarks SET ?";
   let output = connection.query(query, item, (err, result) => {
     if (err) {
       return res.send(err);

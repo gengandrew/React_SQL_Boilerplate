@@ -13,11 +13,13 @@ export const getItems = () => dispath => {
   );
 };
 
-export const deleteItems = BookmarkID => {
-  return {
-    type: DELETE_ITEMS,
-    payload: BookmarkID
-  };
+export const deleteItems = BookmarkID => dispath => {
+  axios.delete(`http://localhost:5000/api/delete/${BookmarkID}`).then(res => {
+    dispath({
+      type: DELETE_ITEMS,
+      payload: BookmarkID
+    });
+  });
 };
 
 export const addItems = item => dispath => {

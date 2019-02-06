@@ -15,7 +15,7 @@ router.get("/getAll", (req, res) => {
       return res.send(err); //removing the return
     } else {
       return res.json({
-        data: result
+        data: result.reverse()
       });
     }
   });
@@ -53,13 +53,29 @@ router.post("/post_bookmarks", (req, res) => {
     URL: req.body.URL,
     BookmarkDescription: req.body.BookmarkDescription
   };
-
+  console.log("There should be " + req.body.BookmarkDescription);
   let query = "INSERT INTO bookmarks SET ?";
   let output = connection.query(query, newInsert, (err, result) => {
     if (err) {
       return res.send(err);
     } else {
-      return res.send(newInsert);
+      res.send(newInsert);
+    }
+  });
+
+  console.log("testing if code makes it to here");
+});
+
+router.delete("/delete/:BookmarkID", (req, res) => {
+  let query = `DELETE FROM bookmarks WHERE BookmarkID = ${
+    req.params.BookmarkID
+  }`;
+  let output = connection.query(query, (err, result) => {
+    if (err) {
+      return res.send(err);
+    } else {
+      console.log(result);
+      return res.send("Delete has been made");
     }
   });
 });
@@ -113,6 +129,7 @@ router.get("/update/:id", (req, res) => {
   });
 });
 
+/*
 // Delete Item
 router.get("/delete/:id", (req, res) => {
   let query = `DELETE FROM products WHERE id = ${req.params.id}`;
@@ -125,5 +142,6 @@ router.get("/delete/:id", (req, res) => {
     }
   });
 });
+*/
 
 module.exports = router;

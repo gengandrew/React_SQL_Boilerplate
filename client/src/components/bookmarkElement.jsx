@@ -17,7 +17,6 @@ class bookmarkElement extends Component {
 
   render() {
     const { items } = this.props.item;
-    console.log(items);
     return (
       <Container>
         <ListGroup>
@@ -36,6 +35,7 @@ class bookmarkElement extends Component {
                       style={{ marginRight: "0.5rem" }}
                       color="danger"
                       size="sm"
+                      id={BookmarkID}
                       onClick={this.deleteClick.bind(this, BookmarkID)}
                     >
                       &times;

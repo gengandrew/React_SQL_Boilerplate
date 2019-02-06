@@ -35,6 +35,10 @@ class itemModal extends Component {
     this.setState({ URL: e.target.value });
   };
 
+  onChangeDescription = e => {
+    this.setState({ BookmarkDescription: e.target.value });
+  };
+
   onSubmit = e => {
     e.preventDefault();
     const newItem = {
@@ -42,7 +46,6 @@ class itemModal extends Component {
       URL: this.state.URL,
       BookmarkDescription: this.state.BookmarkDescription
     };
-
     this.props.addItems(newItem);
     this.toggle();
   };
@@ -77,7 +80,15 @@ class itemModal extends Component {
                   onChange={this.onChangeUrl}
                   style={{ marginTop: "10px" }}
                 />
-                <Button color="dark" style={{ marginTop: "2rem" }} block>
+                <Input
+                  type="test"
+                  name="BookmarkDescription"
+                  id="item"
+                  placeHolder="Add a Description"
+                  onChange={this.onChangeDescription}
+                  style={{ marginTop: "10px" }}
+                />
+                <Button color="dark" style={{ marginTop: "1rem" }} block>
                   Add Item
                 </Button>
               </FormGroup>

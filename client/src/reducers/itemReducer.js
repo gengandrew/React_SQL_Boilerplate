@@ -5,6 +5,21 @@ import {
   ITEMS_LOADING
 } from "../actions/types";
 
+/*
+items obtained from DB should be outlined as such:
+items: [
+  {
+    CatagoryName: "",
+    CatagoryID: "",
+    Bookmarks: [...]
+  },
+  {
+    CatagoryName: "",
+    CatagoryID: "",
+    Bookmarks: [...]
+  }
+]
+*/
 const initialState = {
   items: [],
   loading: false

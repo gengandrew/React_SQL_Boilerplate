@@ -21,11 +21,13 @@ export const deleteItems = BookmarkID => {
   };
 };
 
-export const addItems = item => {
-  return {
-    type: ADD_ITEMS,
-    payload: item
-  };
+export const addItems = item => dispath => {
+  axios.post("http://localhost:5000/api/post_bookmarks", item).then(res =>
+    dispath({
+      type: ADD_ITEMS,
+      payload: res.data
+    })
+  );
 };
 
 export const setItemsLoading = () => {

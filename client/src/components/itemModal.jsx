@@ -28,17 +28,17 @@ class itemModal extends Component {
   };
 
   onChange = e => {
-    this.setState({ [e.target.BookmarkName]: e.target.value });
+    this.setState({ BookmarkName: e.target.value });
   };
 
   onChangeUrl = e => {
-    this.setState({ [e.target.URL]: e.target.value });
+    this.setState({ URL: e.target.value });
   };
 
   onSubmit = e => {
     e.preventDefault();
+    alert(this.state.BookmarkName);
     const newItem = {
-      BookmarkID: uuid(),
       BookmarkName: this.state.BookmarkName,
       URL: this.state.URL,
       BookmarkDescription: this.state.BookmarkDescription

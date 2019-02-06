@@ -6,7 +6,7 @@ const connection = mysql.createConnection(dbConfig);
 
 // Get all items from products
 router.get("/getAll", (req, res) => {
-  let query = "SELECT * FROM products;";
+  let query = "SELECT * FROM bookmarks;";
   let output = connection.query(query, (err, result) => {
     if (err) {
       return res.send(err); //removing the return
@@ -39,6 +39,23 @@ router.get("/createTable", (req, res) => {
       return res.send(err);
     } else {
       return res.send("Table Created");
+    }
+  });
+});
+
+// Posting an Item
+router.post("/post_bookmarks", (req, res) => {
+  let newInsert = {
+    BookmarkName: req.body.payload.BookmarkName,
+    URL: req.body.payload.URL,
+    BookmarkDescription: req.body.payload.BookmarkDescription
+  };
+  let query = "INSERT INTO bookmarks SET ?";
+  let output = connection.query(query, newInsert, (err, result) => {
+    if (err) {
+      return res.send(err);
+    } else {
+      return res.send(newInsert);
     }
   });
 });

@@ -18,6 +18,8 @@ class bookmarkElement extends Component {
   render() {
     const { items } = this.props.item;
     return (
+      <div />
+      /*
       <Container>
         <ListGroup>
           <TransitionGroup className="bookmark-Element">
@@ -48,6 +50,7 @@ class bookmarkElement extends Component {
           </TransitionGroup>
         </ListGroup>
       </Container>
+      */
     );
   }
 }

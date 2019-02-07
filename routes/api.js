@@ -21,6 +21,54 @@ router.get("/getAll", (req, res) => {
   });
 });
 
+// Get all Listed Categories
+router.get("/getCategoryList/:UserID", (req, res) => {
+  let query = `SELECT * FROM bookmarktest.categorylist WHERE UserID = ${
+    req.params.UserID
+  };`;
+  let output = connection.query(query, (err, result) => {
+    if (err) {
+      return res.send(err);
+    } else {
+      return res.json({
+        data: result
+      });
+    }
+  });
+});
+
+// Get all BookmarkID of a CategoryID
+router.get("/getCategoryBookmarks/:CatID", (req, res) => {
+  let query = `SELECT BookmarkID FROM bookmarktest.categorybookmarks WHERE CategoryID = ${
+    req.params.CatID
+  };`;
+  let output = connection.query(query, (err, result) => {
+    if (err) {
+      return res.send(err);
+    } else {
+      return res.json({
+        data: result
+      });
+    }
+  });
+});
+
+// Get a Bookmark from a BookmarkID
+router.get("/getBookmark/:BookmarkID", (req, res) => {
+  let query = `SELECT * FROM bookmarktest.bookmarks WHERE BookmarkID = ${
+    req.params.BookmarkID
+  };`;
+  let output = connection.query(query, (err, result) => {
+    if (err) {
+      return res.send(err);
+    } else {
+      return res.json({
+        data: result
+      });
+    }
+  });
+});
+
 // Create Database
 router.get("/createDB", (req, res) => {
   let query = "CREATE DATABASE products;";

@@ -5,6 +5,44 @@ const serverHostID = "http://localhost:5000/api/";
 
 export const getItems = () => dispath => {
   dispath(setItemsLoading());
+  axios.get("http://localhost:5000/api/getCategoryList/1").then(res => {
+    let categorylist = res.data.data;
+    let out = [];
+    for (let i = 0; i < categorylist.length; i++) {
+      let { CategoryName, CategoryID } = categorylist[i];
+      let catObj = {
+        CategoryName: CategoryName,
+        CategoryID: CategoryID,
+        Bookmarks: []
+      };
+      let arr = [];
+      axios
+        .get(`http://localhost:5000/api/getCategoryBookmarks/${CategoryID}`)
+        .then(res => {
+          let placeHolder = res.data.data;
+          for (let j = 0; j < placeHolder.length; j++) {
+            let { BookmarkID } = placeHolder[j];
+
+            axios
+              .get(`http://localhost:5000/api/getBookmark/${BookmarkID}`)
+              .then(res => {
+                let placeHolder2 = res.data.data;
+                arr.push(placeHolder2[0]);
+              });
+          }
+        });
+      catObj.Bookmarks = arr;
+      out.push(catObj);
+    }
+    dispath({
+      type: GET_ITEMS,
+      payload: out
+    });
+  });
+};
+/*
+export const getItems = () => dispath => {
+  dispath(setItemsLoading());
   axios.get("http://localhost:5000/api/getAll").then(res =>
     dispath({
       type: GET_ITEMS,
@@ -12,7 +50,7 @@ export const getItems = () => dispath => {
     })
   );
 };
-
+*/
 export const deleteItems = BookmarkID => dispath => {
   axios.delete(`http://localhost:5000/api/delete/${BookmarkID}`).then(res => {
     dispath({

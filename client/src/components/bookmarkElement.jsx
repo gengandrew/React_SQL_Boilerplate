@@ -82,12 +82,20 @@ class bookmarkElement extends Component {
     const AllBookmarks = items.filter(items => items.CategoryName === "All");
     const Categories = items.filter(items => items.CategoryName !== "All");
 
-    AllBookmarks.map(({ CategoryName, CategoryID, Bookmarks }) => {
-      console.log(Bookmarks);
-      Bookmarks.map(({ BookmarkName }) => {
-        console.log(BookmarkName);
-      });
+    AllBookmarks.map(category => {
+      //console.log(category.Bookmarks);
+      let kk = category.Bookmarks;
+      console.log(kk);
     });
+    /*
+    AllBookmarks[0].map(({ CategoryName, CategoryID, Bookmarks }) => {
+      console.log(Bookmarks);
+      
+      Bookmarks.map(({ BookmarkName }) => {
+        //console.log("Hello world" + BookmarkName);
+      }); 
+    });*/
+
     return (
       <Container>
         <Row>

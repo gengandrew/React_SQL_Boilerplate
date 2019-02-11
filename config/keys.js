@@ -1,6 +1,6 @@
 module.exports = {
   host: "localhost",
   user: "root",
-  password: "pass4me",
+  password: "plzpass4me",
   database: "bookmarktest"
 };

@@ -4,8 +4,8 @@ import axios from "axios";
 const serverHostID = "http://localhost:5000/api/";
 
 /*
-  Middlewear for the given backend's connection to the front end
-  Formats the http request into a valid format for the middlewear's datastructure
+  Middlewear http request to initialize the middlewears datastructure,
+  additionally will format the http outputs into defined middlewear's datastructure
   Format is given as follows:
     items: [
     {

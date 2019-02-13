@@ -3,6 +3,23 @@ import axios from "axios";
 
 const serverHostID = "http://localhost:5000/api/";
 
+/*
+  Middlewear for the given backend's connection to the front end
+  Formats the http request into a valid format for the middlewear's datastructure
+  Format is given as follows:
+    items: [
+    {
+      CatagoryName: "",
+      CatagoryID: "",
+      Bookmarks: [...]
+    },
+    {
+      CatagoryName: "",
+      CatagoryID: "",
+      Bookmarks: [...]
+    }
+    ]
+*/
 export const getItems = () => dispath => {
   dispath(setItemsLoading());
   axios.get("http://localhost:5000/api/getCategoryList/1").then(res => {

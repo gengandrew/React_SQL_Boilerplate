@@ -27,7 +27,7 @@ export const getItems = () => dispath => {
               .get(`http://localhost:5000/api/getBookmark/${BookmarkID}`)
               .then(res => {
                 let placeHolder2 = res.data.data;
-                arr.push(placeHolder2[0]);
+                arr.push(placeHolder2[0]); // Pushes an object rather than a array.length = 1
               });
           }
         });

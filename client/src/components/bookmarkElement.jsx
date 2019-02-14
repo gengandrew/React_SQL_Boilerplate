@@ -15,10 +15,14 @@ import uuid from "uuid";
 import PropTypes from "prop-types";
 
 class bookmarkElement extends Component {
-  componentDidMount() {
+  UNSAFE_componentWillMount(){
     this.props.getItems();
   }
-
+  /*
+  async componentDidMount() {
+    this.props.getItems();
+  }
+*/
   deleteClick = BookmarkID => {
     this.props.deleteItems(BookmarkID);
   };
@@ -81,11 +85,12 @@ class bookmarkElement extends Component {
     let { items } = this.props.item;
     const AllBookmarks = items.filter(items => items.CategoryName === "All");
     const Categories = items.filter(items => items.CategoryName !== "All");
-
     AllBookmarks.map(category => {
       //console.log(category.Bookmarks);
       let kk = category.Bookmarks;
-      console.log(kk);
+      for(let i = 0; i < kk.length; i++){
+        console.log("test")
+      }
     });
     /*
     AllBookmarks[0].map(({ CategoryName, CategoryID, Bookmarks }) => {

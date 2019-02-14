@@ -3,26 +3,28 @@ import ReactDOM from "react-dom";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import { Provider } from "react-redux";
 import store from "./store";
+import App from "./App";
 import Bookmark from "./pages/Bookmark";
 import ErrorPage from "./pages/ErrorPage";
 import TestPage from "./pages/TestPage";
-import App from "./App";
+import PushTest from "./pages/PushTest";
 import * as serviceWorker from "./serviceWorker";
 import "bootstrap/dist/js/bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./css/stylesheet.css";
 
 ReactDOM.render(
-  <BrowserRouter>
-    <Switch>
-      <Route path="/" component={App} exact />
-      <Route path="/Bookmark" component={Bookmark} />
-      <Provider store={store}>
+  <Provider store={store}>
+    <BrowserRouter>
+      <Switch>
+        <Route path="/" component={App} exact />
+        <Route path="/Bookmark" component={Bookmark} />
+        <Route path="/Push" component = {PushTest} />
         <Route path="/Test" component={TestPage} />
-      </Provider>
-      <Route component={ErrorPage} />
-    </Switch>
-  </BrowserRouter>,
+        <Route component={ErrorPage} />
+      </Switch>
+    </BrowserRouter>
+  </Provider>,
   document.getElementById("root")
 );
 

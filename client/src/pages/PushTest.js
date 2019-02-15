@@ -1,12 +1,14 @@
 import React, { Component } from "react";
 import Navbar from "../components/navbar";
 import { Container , Button} from "reactstrap";
+/*
 const express = require("express");
 const bodyParser = require("body-parser");
 const mysql = require("mysql");
 const router = express.Router();
-
+*/
 class TestPage extends Component {
+  /*
   InsertIntoDB = () => {
     const dbConfig = {
         host: "localhost",
@@ -30,7 +32,7 @@ class TestPage extends Component {
       });
     alert("Insert into DB");
   }
-
+*/
   render() {
     return (
       <div>

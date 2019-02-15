@@ -2,10 +2,32 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const mysql = require("mysql");
 const router = express.Router();
-const dbConfig = require("../config/keys");
-const connection = mysql.createConnection(dbConfig);
 
 router.use(bodyParser.json());
+
+/*
+Starting from here is the inital start for the DB changing Algorithm.
+The configuration keys files are seperated by arrays.
+*/
+let dbConfig = require("../config/keys")[0];
+let connection = mysql.createConnection(dbConfig);
+
+router.get("/changeDB", (req, res) => {
+  dbConfig = require("../config/keys")[1];
+  if(dbConfig === require("../config/keys")[1]){
+    res.send("sucess");
+  } else {
+    res.send("failure");
+  }
+});
+
+router.get("/checkCurrDB", (req, res) => {
+  res.send(dbConfig);
+  console.log(dbConfig);
+})
+/*
+End for the DB changing Algorithms.
+*/
 
 // Get all items from products
 router.get("/getAll", (req, res) => {

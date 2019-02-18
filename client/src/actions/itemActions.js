@@ -91,3 +91,9 @@ export const setItemsLoading = () => {
     type: ITEMS_LOADING
   };
 };
+
+export const addAppDatabase = item => dispath => {
+  axios.post("http://localhost:5000/api/post_Database", item).then(res => {
+    console.log(res.data);
+  });
+};

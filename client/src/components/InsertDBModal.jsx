@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import uuid from "uuid";
-import { addItems } from "../actions/itemActions";
+import { addAppDatabase } from "../actions/itemActions";
 import {
   Button,
   Modal,
@@ -59,6 +59,7 @@ class itemModal extends Component {
         database: this.state.database
     };
     console.log(newItem);
+    this.props.addAppDatabase(newItem);
     this.toggle();
   };
 
@@ -126,10 +127,10 @@ class itemModal extends Component {
 }
 
 const mapStateToProps = state => ({
-  item: state.item
-});
+    item: state.item
+  });
 
 export default connect(
   mapStateToProps,
-  { addItems }
+  { addAppDatabase }
 )(itemModal);

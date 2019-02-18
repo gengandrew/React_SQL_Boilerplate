@@ -4,6 +4,33 @@ const mysql = require("mysql");
 const router = express.Router();
 
 router.use(bodyParser.json());
+/*
+Start for the Application Interface https requests and calls.
+Note that much of this requires that the database is set to BookmarkTest
+*/
+// Posting an Application server
+router.post("/post_Database", (req, res) => {
+  let newInsert = {
+    AppName: req.body.name,
+    host: req.body.host,
+    user: req.body.user,
+    passwd: req.body.password,
+    databaseName: req.body.database
+  }
+  console.log("There should be " + req.body.name);
+  let query = "INSERT INTO DatabaseKeys SET ?";
+  let output = connection.query(query, newInsert, (err, result) => {
+    if (err) {
+      return res.send(err);
+    } else {
+      res.send(newInsert);
+    }
+  });
+  console.log("testing if code makes it to here");
+});
+/*
+End for the Application Interface Codes
+*/
 
 /*
 Starting from here is the inital start for the DB changing Algorithm.

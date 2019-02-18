@@ -1,3 +1,5 @@
+-- Everything below this follows in the processing of the bookmark interface
+
 CREATE DATABASE bookmarktest;
 USE bookmarktest;
 
@@ -19,3 +21,7 @@ INSERT INTO `bookmarktest`.`CategoryBookmarks` (`CategoryID`, `BookmarkID`) VALU
 INSERT INTO `bookmarktest`.`CategoryBookmarks` (`CategoryID`, `BookmarkID`) VALUES ('1', '2');
 INSERT INTO `bookmarktest`.`CategoryBookmarks` (`CategoryID`, `BookmarkID`) VALUES ('1', '3');
 INSERT INTO `bookmarktest`.`CategoryBookmarks` (`CategoryID`, `BookmarkID`) VALUES ('2', '3');
+
+-- Everything below this follows in the processing of the applicaiton interface
+
+CREATE TABLE DatabaseKeys (DatabaseID int NOT NULL AUTO_INCREMENT, AppName VARCHAR(50) NOT NULL, host VARCHAR(50) NOT NULL, user VARCHAR(50) NOT NULL, passwd VARCHAR(50) NOT NULL, databaseName VARCHAR(50) NOT NULL, PRIMARY KEY (DatabaseID));

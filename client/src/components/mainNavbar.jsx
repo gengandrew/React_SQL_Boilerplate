@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import InsertDBModal from "./InsertDBModal";
 //import { Button } from "reactstrap";
 import "bootstrap/dist/js/bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -22,11 +23,7 @@ class NavBar extends Component {
                 Devtool Interface
               </a>
             </li>
-            <li className="nav-item">
-              <a className="nav-link" href="https://www.google.com">
-                Page
-              </a>
-            </li>
+            <InsertDBModal />
             <li className="nav-item">
               <a className="nav-link" href="https://www.google.com">
                 Page

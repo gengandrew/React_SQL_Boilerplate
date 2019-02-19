@@ -94,6 +94,23 @@ export const setItemsLoading = () => {
 
 export const addAppDatabase = item => dispath => {
   axios.post("http://localhost:5000/api/post_Database", item).then(res => {
+    //onsole.log(res.data);
+  });
+};
+
+export const changeToAppDB = item => dispath => {
+  axios.post("http://localhost:5000/api/changeToAppDB", item).then(res => {
+    console.log(item);
+  });
+};
+
+export const getAllTables = () => dispath => {
+  axios.get("http://localhost:5000/api/getAllTables").then(res => {
     console.log(res.data);
+    if(res === null){
+      throw "err";
+    } else {
+      return 1;
+    }
   });
 };

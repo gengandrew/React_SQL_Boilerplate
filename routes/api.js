@@ -39,9 +39,14 @@ The configuration keys files are seperated by arrays.
 let dbConfig = require("../config/keys")[0];
 let connection = mysql.createConnection(dbConfig);
 
-router.get("/changeDB", (req, res) => {
-  dbConfig = require("../config/keys")[1];
-  if(dbConfig === require("../config/keys")[1]){
+router.post("/changeToAppDB", (req, res) => {
+  dbConfig = req.body;
+  console.log(req.body);
+})
+
+router.get("/changeToBaseDB", (req, res) => {
+  dbConfig = require("../config/keys")[0];
+  if(dbConfig === require("../config/keys")[0]){
     res.send("sucess");
   } else {
     res.send("failure");
@@ -51,6 +56,19 @@ router.get("/changeDB", (req, res) => {
 router.get("/checkCurrDB", (req, res) => {
   res.send(dbConfig);
   console.log(dbConfig);
+});
+
+router.get("/getAllTables", (req, res) => {
+  let query = `SELECT table_name FROM information_schema.tables WHERE table_schema =${dbConfig.database}`;
+  let output = connection.query(query, (err, result) => {
+    if (err) {
+      return null; //removing the return
+    } else {
+      return res.json({
+        data: result.reverse()
+      });
+    }
+  });
 })
 /*
 End for the DB changing Algorithms.

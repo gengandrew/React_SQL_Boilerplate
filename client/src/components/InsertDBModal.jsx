@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import uuid from "uuid";
-import { addAppDatabase } from "../actions/itemActions";
+import { addAppDatabase, changeToAppDB, getAllTables } from "../actions/itemActions";
 import {
   Button,
   Modal,
@@ -58,8 +58,17 @@ class itemModal extends Component {
         password: this.state.password,
         database: this.state.database
     };
-    console.log(newItem);
     this.props.addAppDatabase(newItem);
+    this.props.changeToAppDB(newItem);
+    var promise = new Promise((resolve, reject) => {
+      let pingTest = this.props.getAllTables();
+      console.log(pingTest);
+      if(pingTest === 1){
+        resolve("works");
+      } else {
+        reject(Error("IT BROKE"))
+      }
+    })
     this.toggle();
   };
 
@@ -132,5 +141,5 @@ const mapStateToProps = state => ({
 
 export default connect(
   mapStateToProps,
-  { addAppDatabase }
+  { addAppDatabase, changeToAppDB, getAllTables}
 )(itemModal);

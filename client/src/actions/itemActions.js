@@ -108,7 +108,7 @@ export const getAllTables = () => dispath => {
   axios.get("http://localhost:5000/api/getAllTables").then(res => {
     console.log(res.data);
     if(res === null){
-      throw "err";
+      return 0;
     } else {
       return 1;
     }

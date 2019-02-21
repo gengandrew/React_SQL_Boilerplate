@@ -105,7 +105,8 @@ export const changeToAppDB = item => dispath => {
 };
 
 export const getAllTables = () => dispath => {
-  axios.get("http://localhost:5000/api/getAllTables").then(res => {
+  return axios.get("http://localhost:5000/api/getAllTables").then(res => {
+    console.log("This is res data");
     console.log(res.data);
     if(res === null){
       return 0;

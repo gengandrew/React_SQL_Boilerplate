@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import uuid from "uuid";
+import axios from "axios";
 import { addAppDatabase, changeToAppDB, getAllTables } from "../actions/itemActions";
 import {
   Button,
@@ -22,14 +23,12 @@ class itemModal extends Component {
     password: "",
     database: ""
   };
-
+  
   constructor(props){
     super(props);
-    //this.onSubmit = this.onSubmit.bind(this);
     this.onSubmit = this.onSubmit.bind(this);
-    this.helper = this.helper.bind(this);
   }
-
+  
   toggle = () => {
     this.setState({
       modal: !this.state.modal
@@ -56,37 +55,6 @@ class itemModal extends Component {
       this.setState({ password: e.target.value });
   };
 /*
-  async onSubmit(e){
-
-  }
-*/
-  async helper(e){
-    let pingTest = await this.props.getAllTables();
-    return pingTest;
-  }
-
-  async onSubmit(e){
-    const newItem = {
-      name: this.state.name,
-      host: this.state.host,
-      user: this.state.user,
-      password: this.state.password,
-      database: this.state.database
-    };
-    this.props.addAppDatabase(newItem);
-    this.props.changeToAppDB(newItem);
-    let kk = this.helper();
-    alert(kk);
-    let pingTest = await this.props.getAllTables();
-    if(pingTest === 0){
-      alert("Failure");
-    } else {
-      alert("sucess");
-    }
-    console.log("THis is cool" + pingTest);
-    this.toggle();
-  }
-/*
   onSubmit = e => {
     e.preventDefault();
     const newItem = {
@@ -98,18 +66,42 @@ class itemModal extends Component {
     };
     this.props.addAppDatabase(newItem);
     this.props.changeToAppDB(newItem);
-    new Promise((resolve, reject) => {
-      let pingTest = this.props.getAllTables();
-      console.log(pingTest);
-      if(pingTest === 1){
-        resolve("works");
-      } else {
-        reject(Error("IT BROKE"))
-      }
-    })
+    let pingTest = this.props.getAllTables();
+    alert(pingTest);
     this.toggle();
   };
 */
+  async onSubmit(){
+    const newItem = {
+      name: this.state.name,
+      host: this.state.host,
+      user: this.state.user,
+      password: this.state.password,
+      database: this.state.database
+    };
+    this.props.addAppDatabase(newItem);
+    this.props.changeToAppDB(newItem);
+
+    alert("cool");
+
+    let pingTest = 55;
+    await axios.get("http://localhost:5000/api/getAllTables").then(res => {
+      console.log("This is res data");
+      console.log(res.data);
+      if(res === null){
+        pingTest = 0;
+      } else {
+        pingTest = 1;
+      }
+    });
+
+    //let pingTest = await this.props.getAllTables();
+    alert(pingTest);
+    console.log(pingTest);
+    alert(pingTest);
+    this.toggle();
+  }
+
   render() {
     return (
       <React.Fragment>

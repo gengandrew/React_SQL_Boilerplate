@@ -23,12 +23,13 @@ class itemModal extends Component {
     password: "",
     database: ""
   };
-  
+  /*
   constructor(props){
     super(props);
     this.onSubmit = this.onSubmit.bind(this);
+    this.helper = this.helper.bind(this);
   }
-  
+  */
   toggle = () => {
     this.setState({
       modal: !this.state.modal
@@ -54,7 +55,7 @@ class itemModal extends Component {
   onChangePassword = e => {
       this.setState({ password: e.target.value });
   };
-/*
+
   onSubmit = e => {
     e.preventDefault();
     const newItem = {
@@ -69,8 +70,22 @@ class itemModal extends Component {
     let pingTest = this.props.getAllTables();
     alert(pingTest);
     this.toggle();
+    //window.open("http://localhost:3000/bookmark", "something");
+    window.open("http://localhost:3000/AddPage", "Something");
   };
-*/
+/*
+  async helper(){
+    await axios.get("http://localhost:5000/api/getAllTables").then(res => {
+      console.log("This is res data");
+      console.log(res.data);
+      if(res === null){
+        return 0;
+      } else {
+        return 1;
+      }
+    });
+  }
+
   async onSubmit(){
     const newItem = {
       name: this.state.name,
@@ -84,16 +99,7 @@ class itemModal extends Component {
 
     alert("cool");
 
-    let pingTest = 55;
-    await axios.get("http://localhost:5000/api/getAllTables").then(res => {
-      console.log("This is res data");
-      console.log(res.data);
-      if(res === null){
-        pingTest = 0;
-      } else {
-        pingTest = 1;
-      }
-    });
+    let pingTest = await this.helper();
 
     //let pingTest = await this.props.getAllTables();
     alert(pingTest);
@@ -101,7 +107,7 @@ class itemModal extends Component {
     alert(pingTest);
     this.toggle();
   }
-
+*/
   render() {
     return (
       <React.Fragment>

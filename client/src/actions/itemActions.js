@@ -115,3 +115,10 @@ export const getAllTables = () => dispath => {
     }
   });
 };
+
+/*
+  Get all Info for Application side database
+*/
+export const getAllAppDatabase = () => dispath => {
+  //axios.get
+}

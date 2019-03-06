@@ -55,10 +55,9 @@ class CommandModal extends Component {
       <div>
         <Button
           color="dark"
-          style={{ marginBottom: "2rem", marginTop: "2rem" }}
           onClick={this.toggle}
         >
-          Add Item
+          Add New Update Command
         </Button>
         <Modal isOpen={this.state.modal} toggle={this.toggle}>
           <ModalHeader toggle={this.toggle}>Add To Bookmarks</ModalHeader>
@@ -107,4 +106,4 @@ const mapStateToProps = state => ({
 export default connect(
   mapStateToProps,
   { addItems }
-)(itemModal);
+)(CommandModal);

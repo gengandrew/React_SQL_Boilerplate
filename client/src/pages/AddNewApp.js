@@ -20,10 +20,9 @@ class AddNewApp extends Component {
       <React.Fragment>
         <Navbar />
         <Container style={{marginTop: "2rem"}}>
-        <CommandModal />
           <ListGroup>
             <ListGroupItem>
-              <Button color="primary" onClick={this.collapseToggle}>Add Command Update</Button>
+              <CommandModal />
             </ListGroupItem>
             <ListGroupItem>
               <Button>akjsdlashdlahsjlkdjaslh</Button>

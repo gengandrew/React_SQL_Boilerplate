@@ -8,7 +8,7 @@ import Bookmark from "./pages/Bookmark";
 import ErrorPage from "./pages/ErrorPage";
 import TestPage from "./pages/TestPage";
 import PushTest from "./pages/PushTest";
-import AddPage from "./pages/AddAppIns";
+import AddNewApp from "./pages/AddNewApp";
 import * as serviceWorker from "./serviceWorker";
 import "bootstrap/dist/js/bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -22,7 +22,7 @@ ReactDOM.render(
         <Route path="/Bookmark" component={Bookmark} />
         <Route path="/Push" component = {PushTest} />
         <Route path="/Test" component={TestPage} />
-        <Route path="/AddPage" component={AddPage} /> 
+        <Route path="/new_app" component={AddNewApp} /> 
         <Route component={ErrorPage} />
       </Switch>
     </BrowserRouter>

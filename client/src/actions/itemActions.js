@@ -116,9 +116,9 @@ export const getAllTables = () => dispath => {
   });
 };
 
-/*
-  Get all Info for Application side database
-*/
-export const getAllAppDatabase = () => dispath => {
-  //axios.get
+export const init_database = item => dispatch => {
+  return axios.get("http://localhost:5000/api2/init_database", item).then(res => {
+    console.log(res.data);
+    return 1;
+  })
 }

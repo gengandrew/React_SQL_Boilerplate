@@ -45,6 +45,10 @@ for(let i = 0; i < 2; i++){
   }
 }
 
+router.get("/init_http_req", (req, res) => {
+  console.log(req.body);
+});
+
 /*
 Start for the Application Interface https requests and calls.
 Note that much of this requires that the database is set to BookmarkTest
@@ -218,7 +222,6 @@ router.post("/post_bookmarks", (req, res) => {
       res.send(newInsert);
     }
   });
-
   console.log("testing if code makes it to here");
 });
 

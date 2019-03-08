@@ -71,7 +71,7 @@ class itemModal extends Component {
     alert(pingTest);
     this.toggle();
     //window.open("http://localhost:3000/bookmark", "something");
-    window.open("http://localhost:3000/AddPage", "Something");
+    window.open("http://localhost:3000/new_app", "Something");
   };
 /*
   async helper(){

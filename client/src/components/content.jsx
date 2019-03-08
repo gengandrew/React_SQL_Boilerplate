@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component, Button } from "react";
 import Navbar from "./mainNavbar";
 import "bootstrap/dist/js/bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -6,6 +6,12 @@ import "../css/stylesheet.css";
 
 class Content extends Component {
   state = {};
+  init_database = () => {
+    this.setState({
+      modal: !this.state.modal
+    });
+  };
+
   render() {
     return (
       <div id="content">
@@ -16,6 +22,9 @@ class Content extends Component {
         <button className="btn btn-primary" style={{ marginLeft: "10px" }}>
           <a href="http://localhost:3000/Bookmark">Bookmark</a>
         </button>
+        <Button color="primary" style={{marginLeft: "10px"}} onClick={this.init_database}>
+          Init_Database
+        </Button>
       </div>
     );
   }

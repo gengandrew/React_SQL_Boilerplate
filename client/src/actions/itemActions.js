@@ -57,17 +57,7 @@ export const getItems = () => dispath => {
     });
   });
 };
-/*
-export const getItems = () => dispath => {
-  dispath(setItemsLoading());
-  axios.get("http://localhost:5000/api/getAll").then(res =>
-    dispath({
-      type: GET_ITEMS,
-      payload: res.data
-    })
-  );
-};
-*/
+
 export const deleteItems = BookmarkID => dispath => {
   axios.delete(`http://localhost:5000/api/delete/${BookmarkID}`).then(res => {
     dispath({

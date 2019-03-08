@@ -14,7 +14,7 @@ import {
   Input
 } from "reactstrap";
 
-class addNewApp extends Component {
+class AddNewApp extends Component {
   constructor(props) {
     super(props);
     this.collapseToggle = this.collapseToggle.bind(this);
@@ -110,4 +110,4 @@ class addNewApp extends Component {
   }
 }
 
-export default addNewApp;
+export default AddNewApp;

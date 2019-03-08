@@ -9,7 +9,7 @@ let dbConfig = require("../config/keys");
 let connection = mysql.createConnection(dbConfig);
 
 /*
-  Developer side testing tool used to check which database the backend
+  Http Request for Developer side testing tool used to check which database the backend
   is currently working on
 */
 router.get("/checkCurrDB", (req, res) => {
@@ -18,10 +18,9 @@ router.get("/checkCurrDB", (req, res) => {
 });
 
 /*
-  Placeholder code used to obtain the names of all Tables within the current database.
-  (This code should probably be within the for loop on the Application side)
+  Http Request used to obtain the names of all Tables within the current database.
 */
-router.get("/getAllTables", (req, res) => {
+router.get("/getAllTablesNames", (req, res) => {
   let query = `SELECT table_name FROM information_schema.tables WHERE table_schema =${dbConfig.database}`;
   let output = connection.query(query, (err, result) => {
     if (err) {
@@ -29,22 +28,6 @@ router.get("/getAllTables", (req, res) => {
     } else {
       return res.json({
         data: result.reverse()
-      });
-    }
-  });
-});
-
-/*
-  Http request for getting all currently inialized databases from our Web Interface database
-*/
-router.get("/getAllAppDB", (req, res) => {
-  let query = "SELECT * FROM bookmarktest.DatabaseKeys;";
-  let output = connection.query(query, (err, result) => {
-    if (err) {
-      return res.send(err);
-    } else {
-      return res.json({
-        data: result
       });
     }
   });
@@ -61,44 +44,79 @@ router.post("/post_Database", (req, res) => {
     passwd: req.body.password,
     databaseName: req.body.database
   }
-  console.log("There should be " + req.body.name);
   let query = "INSERT INTO DatabaseKeys SET ?";
   let output = connection.query(query, newInsert, (err, result) => {
     if (err) {
       return res.send(err);
     } else {
-      res.send(newInsert);
+      return res.send(newInsert);
     }
   });
-  console.log("testing if code makes it to here");
 });
 
 /*
-  Werid Code which initializes the backends of all currently
-  availaible applications with information in our database
+  Http request for selecting a row based on concatnated string ID
 */
-router.get("/Init_Backend", (req,res) => {
-  // Application Databases containing all valid keys
-  let Application_Databases_Info = req.body;
-
-  for(let i = 0; i < Application_Databases_Info.length; i++){
-    let CurrentInfo = Application_Databases_Info[i];
-    let CurrConfig = CurrentInfo;
-    let connection = mysql.createConnection(CurrConfig);
-
-    router.get(`/getAllFrom${CurrConfig.AppName}`, (req, res) => {
-      let query = `SELECT * FROM ${CurrConfig.databaseName}`;
-      let output = connection.query(query, (err, result) => {
-        if (err) {
-          return res.send(err);
-        } else {
-          return res.jason({
-            data: result
-          });
-        }
+router.get("/getCategoryList/:UserID", (req, res) => {
+  let query = `SELECT * FROM bookmarktest.categorylist WHERE UserID = ${
+    req.params.UserID
+  };`;
+  let output = connection.query(query, (err, result) => {
+    if (err) {
+      return res.send(err);
+    } else {
+      return res.json({
+        data: result
       });
-    });
-  }
+    }
+  });
+});
+
+/*
+  Http request for deleting a row from a table based on concatinated
+  string ID.
+*/
+router.delete("/delete/:ID", (req, res) => {
+  let query = `DELETE FROM bookmarks WHERE BookmarkID = ${
+    req.params.ID
+  }`;
+  let output = connection.query(query, (err, result) => {
+    if (err) {
+      return res.send(err);
+    } else {
+      console.log(result);
+      return res.send("Delete has been made");
+    }
+  });
+});
+
+/*
+  Create Database
+*/
+router.get("/createDB/:DatabaseName", (req, res) => {
+  let query = `CREATE DATABASE ${req.params.DatabaseName};`;
+  let output = connection.query(query, (err, result) => {
+    if (err) {
+      return res.send(err);
+    } else {
+      return res.send("Database Created");
+    }
+  });
+});
+
+/*
+  Create Table
+*/
+router.get("/createTable/:TableName", (req, res) => {
+  let query =
+    `CREATE table ${req.params.TableName} (id int NOT NULL AUTO_INCREMENT, name VARCHAR(50), cost int, PRIMARY KEY (id));`;
+  let output = connection.query(query, (err, result) => {
+    if (err) {
+      return res.send(err);
+    } else {
+      return res.send("Table Created");
+    }
+  });
 });
 
 module.exports = router;

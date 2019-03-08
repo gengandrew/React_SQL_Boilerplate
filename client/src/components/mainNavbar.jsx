@@ -5,7 +5,7 @@ import "bootstrap/dist/js/bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "../css/stylesheet.css";
 
-class NavBar extends Component {
+class MainNavBar extends Component {
   //state = {  }
   render() {
     return (
@@ -60,4 +60,4 @@ class NavBar extends Component {
   }
 }
 
-export default NavBar;
+export default MainNavBar;

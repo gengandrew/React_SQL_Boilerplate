@@ -14,7 +14,7 @@ import {
   Button
 } from "reactstrap";
 
-class navbar extends Component {
+class NavigationBar extends Component {
   constructor(props) {
     super(props);
     this.toggle = this.toggle.bind(this);
@@ -72,4 +72,4 @@ class navbar extends Component {
   }
 }
 
-export default navbar;
+export default NavigationBar;

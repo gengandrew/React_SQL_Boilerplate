@@ -1,6 +1,5 @@
 import React, { Component } from "react";
-import Test from "../components/bookmarkElement";
-import ItemModal from "../components/itemModal";
+import ItemModal from "../components/ItemModal";
 import { Container } from "reactstrap";
 
 class TestPage extends Component {
@@ -8,7 +7,6 @@ class TestPage extends Component {
     return (
       <Container>
         <ItemModal />
-        <Test />
       </Container>
     );
   }

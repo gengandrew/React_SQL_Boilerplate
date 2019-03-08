@@ -1,6 +1,6 @@
 ## Project Description
 
-A website interface for all internal built softwares. Developed using the React framework and a MySQL backend.
+A Boilerplate for React-Redux project with a mySQL backend.
 
 ## Available Scripts
 

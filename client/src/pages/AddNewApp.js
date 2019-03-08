@@ -1,7 +1,7 @@
 import React, { Component } from "react";
-import NewAppComponent from "../components/addNewApp";
+import NewAppComponent from "../components/AddNewApp";
 import CommandModal from "../components/CommandModal";
-import Navbar from "../components/navbar";
+import Navbar from "../components/NavigationBar";
 import { Container, Button, ListGroup, ListGroupItem } from "reactstrap";
 
 class AddNewApp extends Component {

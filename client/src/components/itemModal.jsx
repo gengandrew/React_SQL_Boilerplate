@@ -13,7 +13,7 @@ import {
   Input
 } from "reactstrap";
 
-class itemModal extends Component {
+class ItemModal extends Component {
   state = {
     modal: false,
     BookmarkName: "",
@@ -107,4 +107,4 @@ const mapStateToProps = state => ({
 export default connect(
   mapStateToProps,
   { addItems }
-)(itemModal);
+)(ItemModal);

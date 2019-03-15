@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import Navbar from "../components/NavigationBar";
 import { Container , Button} from "reactstrap";
 
-class TestPage extends Component {
+class PushTest extends Component {
 
   render() {
     return (
@@ -18,4 +18,4 @@ class TestPage extends Component {
   }
 }
 
-export default TestPage;
+export default PushTest;

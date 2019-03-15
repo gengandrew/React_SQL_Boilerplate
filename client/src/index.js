@@ -1,3 +1,8 @@
+/*
+  Master state of the given full stack's client side interface.
+  Specifies all the given pages which are tied with the given web application through routes from the react-dom.
+  Additionally ties the entire front end with the middlewear.
+*/
 import React from "react";
 import ReactDOM from "react-dom";
 import { BrowserRouter, Route, Switch } from "react-router-dom";

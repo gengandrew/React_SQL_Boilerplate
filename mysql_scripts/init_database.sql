@@ -1,4 +1,5 @@
--- Everything below this follows in the processing of the bookmark interface
+-- Shown below are the traditional sql commands used to initialize initial setup for the mysql database.
+-- Note: This file is used for completeness of full stack initializaiton, the file itself is not active during runtime.
 
 CREATE DATABASE bookmarktest;
 USE bookmarktest;

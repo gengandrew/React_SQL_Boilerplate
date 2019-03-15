@@ -3,7 +3,6 @@ import Navbar from "../components/NavigationBar";
 import { Container , Button} from "reactstrap";
 
 class PushTest extends Component {
-
   render() {
     return (
       <div>

@@ -1,3 +1,9 @@
+/*
+  Routers call for all given http requests.
+  All listed http request can be obtained from the localhost:5000/api location
+    1. All http requests are in reference to a mysql relational backend
+    2. All database credientals and informations are obtained form the /config/key file
+*/
 const express = require("express");
 const bodyParser = require("body-parser");
 const mysql = require("mysql");
